@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cm2n52ebcgby"]
+
+[ext_resource type="Script" uid="uid://ctsix1n5ekhm7" path="res://crawler.gd" id="1_3n7dr"]
+[ext_resource type="Texture2D" uid="uid://deqfkpoytwr3t" path="res://Horizontal.png" id="1_vawpx"]
+[ext_resource type="Script" uid="uid://dpy3vwl70dqry" path="res://hitarea.gd" id="3_f6m34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggpg"]
+size = Vector2(16, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs13p"]
+size = Vector2(16, 10)
+
+[sub_resource type="Curve" id="Curve_f6m34"]
+_data = [Vector2(0.02645503, 1), 0.0, 0.0, 0, 0, Vector2(0.24603173, 0.011695862), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ihok4"]
+offsets = PackedFloat32Array(0, 0.61419755)
+
+[node name="Crawler" type="CharacterBody2D" unique_id=1363650457]
+script = ExtResource("1_3n7dr")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1312568116]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_vawpx")
+
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=1102330955]
+shape = SubResource("RectangleShape2D_6ggpg")
+
+[node name="raycastleftground" type="RayCast2D" parent="." unique_id=722445472]
+position = Vector2(-8, -1)
+target_position = Vector2(0, 10)
+
+[node name="raycastrightground" type="RayCast2D" parent="." unique_id=640288038]
+position = Vector2(8, -1)
+target_position = Vector2(0, 10)
+
+[node name="raycastleft" type="RayCast2D" parent="." unique_id=1079967378]
+rotation = 1.5707964
+target_position = Vector2(4.371139e-07, 10)
+
+[node name="raycastright" type="RayCast2D" parent="." unique_id=872707431]
+rotation = -1.5707964
+target_position = Vector2(-4.371139e-07, 10)
+
+[node name="hitarea" type="Area2D" parent="." unique_id=877718654]
+script = ExtResource("3_f6m34")
+
+[node name="hitbox" type="CollisionShape2D" parent="hitarea" unique_id=618229736]
+shape = SubResource("RectangleShape2D_xs13p")
+
+[node name="VFX" type="CPUParticles2D" parent="." unique_id=1554963223]
+position = Vector2(0, -7)
+emitting = false
+amount = 75
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 10)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_f6m34")
+color = Color(0.627451, 0.29411766, 1, 1)
+color_initial_ramp = SubResource("Gradient_ihok4")
+
+[connection signal="area_entered" from="hitarea" to="." method="_on_hitarea_area_entered"]

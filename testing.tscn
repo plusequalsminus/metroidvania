@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://l80tk4dn22e7"]
+
+[sub_resource type="Curve" id="Curve_cmw5o"]
+_data = [Vector2(0.02116403, 1), 0.0, 0.0, 0, 0, Vector2(0.40476188, 0.014619827), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7o5o0"]
+
+[node name="Node2D" type="Node2D" unique_id=215264200]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=561712979]
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 10)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_cmw5o")
+color = Color(0.6689533, 2.201982e-06, 6.738305e-07, 1)
+color_initial_ramp = SubResource("Gradient_7o5o0")

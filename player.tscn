@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cuqcsjv0lrx12"]
+
+[ext_resource type="Texture2D" uid="uid://dbtaf1vffpoi0" path="res://Vertical.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://ueqvby8naudk" path="res://player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://deqfkpoytwr3t" path="res://Horizontal.png" id="2_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggpg"]
+size = Vector2(20, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs13p"]
+size = Vector2(16, 10)
+
+[sub_resource type="Curve" id="Curve_cmw5o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.75132275, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_i3pqv"]
+offsets = PackedFloat32Array(0, 0.12037037)
+
+[node name="player" type="CharacterBody2D" unique_id=1284083225 groups=["player"]]
+script = ExtResource("1_i3pqv")
+
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=2060420164]
+shape = SubResource("RectangleShape2D_6ggpg")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=2101124527]
+modulate = Color(0, 0, 1, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_4flbx")
+
+[node name="camera" type="Camera2D" parent="." unique_id=1985226612]
+zoom = Vector2(2, 2)
+
+[node name="sword" type="Area2D" parent="." unique_id=1926267462 groups=["weapon"]]
+position = Vector2(21, 5)
+rotation = 1.5707964
+monitoring = false
+
+[node name="hitbox" type="CollisionShape2D" parent="sword" unique_id=366407622 groups=["weapon"]]
+shape = SubResource("RectangleShape2D_xs13p")
+disabled = true
+
+[node name="sprite" type="Sprite2D" parent="sword" unique_id=288538544 groups=["weapon"]]
+modulate = Color(0, 1, 0, 1)
+self_modulate = Color(0, 1, 0, 1)
+texture = ExtResource("2_onrkg")
+
+[node name="DashingEffects" type="CPUParticles2D" parent="." unique_id=68027637]
+position = Vector2(1.1920929e-07, -2.9802322e-08)
+rotation = -0.7851007
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+speed_scale = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 10)
+direction = Vector2(-1, -1)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 89.11
+initial_velocity_max = 445.54
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_cmw5o")
+color = Color(0, 1, 1, 1)
+color_initial_ramp = SubResource("Gradient_i3pqv")
