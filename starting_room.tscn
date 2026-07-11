@@ -56,10 +56,6 @@ metadata/_scene_painted = true
 position = Vector2(16, 88)
 metadata/_scene_painted = true
 
-[node name="Crawler9" parent="." unique_id=852364863 instance=ExtResource("3_mlujb")]
-position = Vector2(40, 88)
-metadata/_scene_painted = true
-
 [node name="Crawler10" parent="." unique_id=1648591765 instance=ExtResource("3_mlujb")]
 position = Vector2(-1352, 160)
 metadata/_scene_painted = true
