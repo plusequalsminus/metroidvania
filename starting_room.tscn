@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cuqcsjv0lrx12" path="res://player.tscn" id="1_10ia8"]
 [ext_resource type="Texture2D" uid="uid://bqg3qti0klob1" path="res://Square.png" id="3_bnu7n"]
 [ext_resource type="PackedScene" uid="uid://cm2n52ebcgby" path="res://crawler.tscn" id="3_mlujb"]
+[ext_resource type="AudioStream" uid="uid://v6ef5jf83d2q" path="res://JacobsMusic.wav" id="4_mlujb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l5di8"]
 texture = ExtResource("3_bnu7n")
@@ -91,3 +92,6 @@ metadata/_scene_painted = true
 [node name="Crawler18" parent="." unique_id=1830250953 instance=ExtResource("3_mlujb")]
 position = Vector2(216, 88)
 metadata/_scene_painted = true
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=2043280892]
+stream = ExtResource("4_mlujb")
