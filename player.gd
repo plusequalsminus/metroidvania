@@ -50,6 +50,8 @@ func _physics_process(delta: float) -> void:
 		$sword/sprite.visible = false
 
 	# Handle jump.
+#	if jumps == 1:
+#		$JumpingEffects.emitting = true
 	if Input.is_action_just_pressed("up") and is_on_floor() or Input.is_action_just_pressed("up") and jumps < 1:
 		jumps += 1
 		velocity.y = JUMP_VELOCITY
