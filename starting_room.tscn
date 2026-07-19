@@ -46,5 +46,5 @@ stream = ExtResource("4_mlujb")
 
 [node name="hitbox" type="CollisionShape2D" parent="fallArea" unique_id=1663153778]
 position = Vector2(-1269, 971)
-scale = Vector2(453.92004, 1)
+scale = Vector2(453.92004, 9.600001)
 shape = SubResource("RectangleShape2D_6ggpg")
