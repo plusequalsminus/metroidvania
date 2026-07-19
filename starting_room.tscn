@@ -14,6 +14,8 @@ texture = ExtResource("3_bnu7n")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_l5di8")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggpg"]
+
 [node name="starting room" type="Node2D" unique_id=2036172999]
 
 [node name="player" parent="." unique_id=1284083225 instance=ExtResource("1_10ia8")]
@@ -37,61 +39,12 @@ self_modulate = Color(0, 1, 1, 1)
 position = Vector2(153, 104)
 texture = ExtResource("3_bnu7n")
 
-[node name="Crawler2" parent="." unique_id=655866122 instance=ExtResource("3_mlujb")]
-position = Vector2(-128, 88)
-metadata/_scene_painted = true
-
-[node name="Crawler3" parent="." unique_id=1046369814 instance=ExtResource("3_mlujb")]
-position = Vector2(-104, 88)
-metadata/_scene_painted = true
-
-[node name="Crawler4" parent="." unique_id=1137087288 instance=ExtResource("3_mlujb")]
-position = Vector2(-80, 88)
-metadata/_scene_painted = true
-
-[node name="Crawler5" parent="." unique_id=1356244715 instance=ExtResource("3_mlujb")]
-position = Vector2(-56, 88)
-metadata/_scene_painted = true
-
-[node name="Crawler8" parent="." unique_id=1603030552 instance=ExtResource("3_mlujb")]
-position = Vector2(16, 88)
-metadata/_scene_painted = true
-
-[node name="Crawler10" parent="." unique_id=1648591765 instance=ExtResource("3_mlujb")]
-position = Vector2(-1352, 160)
-metadata/_scene_painted = true
-
-[node name="Crawler11" parent="." unique_id=143284471 instance=ExtResource("3_mlujb")]
-position = Vector2(8, 32)
-metadata/_scene_painted = true
-
-[node name="Crawler12" parent="." unique_id=1283992694 instance=ExtResource("3_mlujb")]
-position = Vector2(64, 88)
-metadata/_scene_painted = true
-
-[node name="Crawler13" parent="." unique_id=2024311800 instance=ExtResource("3_mlujb")]
-position = Vector2(88, 88)
-metadata/_scene_painted = true
-
-[node name="Crawler14" parent="." unique_id=1426221600 instance=ExtResource("3_mlujb")]
-position = Vector2(112, 88)
-metadata/_scene_painted = true
-
-[node name="Crawler15" parent="." unique_id=605392874 instance=ExtResource("3_mlujb")]
-position = Vector2(136, 88)
-metadata/_scene_painted = true
-
-[node name="Crawler16" parent="." unique_id=792320656 instance=ExtResource("3_mlujb")]
-position = Vector2(160, 88)
-metadata/_scene_painted = true
-
-[node name="Crawler17" parent="." unique_id=62966213 instance=ExtResource("3_mlujb")]
-position = Vector2(192, 88)
-metadata/_scene_painted = true
-
-[node name="Crawler18" parent="." unique_id=1830250953 instance=ExtResource("3_mlujb")]
-position = Vector2(216, 88)
-metadata/_scene_painted = true
-
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=2043280892]
 stream = ExtResource("4_mlujb")
+
+[node name="fallArea" type="Area2D" parent="." unique_id=530925269]
+
+[node name="hitbox" type="CollisionShape2D" parent="fallArea" unique_id=1663153778]
+position = Vector2(-1269, 971)
+scale = Vector2(453.92004, 1)
+shape = SubResource("RectangleShape2D_6ggpg")
