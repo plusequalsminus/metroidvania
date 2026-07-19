@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://ch6i6wo7cc5ol"]
 
 [ext_resource type="PackedScene" uid="uid://cuqcsjv0lrx12" path="res://player.tscn" id="1_10ia8"]
+[ext_resource type="Script" uid="uid://bv0q3sept8fus" path="res://starting_room.gd" id="1_bnu7n"]
 [ext_resource type="Texture2D" uid="uid://bqg3qti0klob1" path="res://Square.png" id="3_bnu7n"]
 [ext_resource type="PackedScene" uid="uid://cm2n52ebcgby" path="res://crawler.tscn" id="3_mlujb"]
 [ext_resource type="AudioStream" uid="uid://v6ef5jf83d2q" path="res://JacobsMusic.wav" id="4_mlujb"]
@@ -17,6 +18,7 @@ sources/0 = SubResource("TileSetAtlasSource_l5di8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggpg"]
 
 [node name="starting room" type="Node2D" unique_id=2036172999]
+script = ExtResource("1_bnu7n")
 
 [node name="player" parent="." unique_id=1284083225 instance=ExtResource("1_10ia8")]
 
@@ -48,3 +50,8 @@ stream = ExtResource("4_mlujb")
 position = Vector2(-1269, 971)
 scale = Vector2(453.92004, 9.600001)
 shape = SubResource("RectangleShape2D_6ggpg")
+
+[node name="respawnPoint" type="Marker2D" parent="." unique_id=1858955611]
+position = Vector2(-1, -473)
+
+[connection signal="body_entered" from="fallArea" to="." method="_on_fall_area_body_entered"]

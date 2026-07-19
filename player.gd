@@ -17,6 +17,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	#Show Health
+	$healthCounter.text = str(Global.health)
 	
 	#Debug Tools
 	print(velocity.x)
