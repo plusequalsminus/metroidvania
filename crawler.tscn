@@ -17,7 +17,12 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_ihok4"]
 offsets = PackedFloat32Array(0, 0.61419755)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrmmu"]
+size = Vector2(14, 8)
+
 [node name="Crawler" type="CharacterBody2D" unique_id=1363650457]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_3n7dr")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1312568116]
@@ -31,18 +36,22 @@ shape = SubResource("RectangleShape2D_6ggpg")
 [node name="raycastleftground" type="RayCast2D" parent="." unique_id=722445472]
 position = Vector2(-8, -1)
 target_position = Vector2(0, 10)
+collision_mask = 2
 
 [node name="raycastrightground" type="RayCast2D" parent="." unique_id=640288038]
 position = Vector2(8, -1)
 target_position = Vector2(0, 10)
+collision_mask = 2
 
 [node name="raycastleft" type="RayCast2D" parent="." unique_id=1079967378]
 rotation = 1.5707964
 target_position = Vector2(4.371139e-07, 10)
+collision_mask = 2
 
 [node name="raycastright" type="RayCast2D" parent="." unique_id=872707431]
 rotation = -1.5707964
 target_position = Vector2(-4.371139e-07, 10)
+collision_mask = 2
 
 [node name="hitarea" type="Area2D" parent="." unique_id=877718654]
 script = ExtResource("3_f6m34")
@@ -68,4 +77,10 @@ scale_amount_curve = SubResource("Curve_f6m34")
 color = Color(0.627451, 0.29411766, 1, 1)
 color_initial_ramp = SubResource("Gradient_ihok4")
 
+[node name="damagearea" type="Area2D" parent="." unique_id=1133486881]
+
+[node name="hitbox" type="CollisionShape2D" parent="damagearea" unique_id=305182017]
+shape = SubResource("RectangleShape2D_mrmmu")
+
 [connection signal="area_entered" from="hitarea" to="." method="_on_hitarea_area_entered"]
+[connection signal="body_entered" from="damagearea" to="." method="_on_damagearea_body_entered"]

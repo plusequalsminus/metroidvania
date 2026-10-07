@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dbtaf1vffpoi0" path="res://Vertical.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://ueqvby8naudk" path="res://player.gd" id="1_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://deqfkpoytwr3t" path="res://Horizontal.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggpg"]
 size = Vector2(20, 32)
@@ -18,6 +17,7 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.12037037)
 
 [node name="player" type="CharacterBody2D" unique_id=1284083225 groups=["player"]]
+z_index = 1
 script = ExtResource("1_i3pqv")
 
 [node name="hitbox" type="CollisionShape2D" parent="." unique_id=2060420164]
@@ -40,10 +40,14 @@ monitoring = false
 shape = SubResource("RectangleShape2D_xs13p")
 disabled = true
 
-[node name="sprite" type="Sprite2D" parent="sword" unique_id=288538544 groups=["weapon"]]
+[node name="sprite" type="ColorRect" parent="sword" unique_id=1640775281 groups=["weapon"]]
 modulate = Color(0, 1, 0, 1)
 self_modulate = Color(0, 1, 0, 1)
-texture = ExtResource("2_onrkg")
+offset_left = -7.813637
+offset_top = -5.1291733
+offset_right = 8.196022
+offset_bottom = 4.8966255
+color = Color(0, 1, 0, 1)
 
 [node name="DashingEffects" type="CPUParticles2D" parent="." unique_id=68027637]
 position = Vector2(1.1920929e-07, -2.9802322e-08)
@@ -66,9 +70,10 @@ color = Color(0, 1, 1, 1)
 color_initial_ramp = SubResource("Gradient_i3pqv")
 
 [node name="JumpingEffects" type="CPUParticles2D" parent="." unique_id=1369257563]
+visible = false
 position = Vector2(0, 16)
 emitting = false
-amount = 50
+amount = 100
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
@@ -84,3 +89,30 @@ offset_left = -283.0
 offset_top = -159.0
 offset_right = -243.0
 offset_bottom = -136.0
+
+[node name="state" type="Label" parent="." unique_id=1082870524]
+offset_left = -20.0
+offset_top = -39.0
+offset_right = 20.0
+offset_bottom = -16.0
+text = "state"
+
+[node name="key" type="Label" parent="." unique_id=709788061]
+z_index = 2
+offset_left = -289.0
+offset_top = 131.0
+offset_right = 375.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 10
+text = "| 0 = IDLE | 1 = WALKING | 2 = RUNNING | 
+| 3 = JUMPING | 4 = DASHING | 5 = FALLING |"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1294609943]
+z_index = 1
+offset_left = -288.0
+offset_top = 132.0
+offset_right = -71.0
+offset_bottom = 162.0
+color = Color(0, 0, 0, 0.45882353)
+
+[node name="balls" type="Node2D" parent="." unique_id=858022117]

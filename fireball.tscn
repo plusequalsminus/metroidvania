@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dpo3582m0wb21"]
+
+[ext_resource type="Script" uid="uid://cer36v2o5tcon" path="res://fireball.gd" id="1_sf4mh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggpg"]
+size = Vector2(68.5, 34.5)
+
+[node name="fireball" type="Area2D" unique_id=1840347760 groups=["weapon"]]
+top_level = true
+script = ExtResource("1_sf4mh")
+
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=1371291503]
+position = Vector2(0.25, -0.25)
+shape = SubResource("RectangleShape2D_6ggpg")
+
+[node name="sprite" type="ColorRect" parent="." unique_id=1209439971]
+offset_left = -34.0
+offset_top = -18.0
+offset_right = 35.0
+offset_bottom = 17.0
+color = Color(1, 0.5116678, 0, 1)

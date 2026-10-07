@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://67t7wpw8rhqh"]
+
+[ext_resource type="Script" uid="uid://bvmj5knxruv45" path="res://gameover.gd" id="1_4nh4k"]
+
+[sub_resource type="Animation" id="Animation_01c2x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transscreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1152, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ll6gv"]
+resource_name = "transition"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transscreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1152, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_arjdv"]
+_data = {
+&"RESET": SubResource("Animation_01c2x"),
+&"transition": SubResource("Animation_ll6gv")
+}
+
+[node name="gameover" type="Control" unique_id=633721728]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4nh4k")
+
+[node name="animator" type="AnimationPlayer" parent="." unique_id=1346877123]
+libraries/ = SubResource("AnimationLibrary_arjdv")
+
+[node name="transscreen" type="Control" parent="." unique_id=1147385476]
+anchors_preset = 0
+offset_left = -1152.0
+offset_right = -1112.0
+offset_bottom = 40.0
+
+[node name="transition" type="ColorRect" parent="transscreen" unique_id=1026496868]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+offset_transform_enabled = true
+color = Color(0, 0, 0, 1)
+
+[node name="label" type="Label" parent="." unique_id=2079960330]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -68.5
+offset_right = 224.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "You died!"
+
+[node name="restart" type="Button" parent="." unique_id=1425754854]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.5
+offset_top = 57.0
+offset_right = 135.5
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 75
+text = "Restart"
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]

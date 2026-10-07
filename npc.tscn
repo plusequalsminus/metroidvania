@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://diaj5hqbip1ye"]
+
+[ext_resource type="Script" uid="uid://5w6cqqmvyrdl" path="res://npc.gd" id="1_ideak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggpg"]
+size = Vector2(61, 80)
+
+[node name="npc" type="Area2D" unique_id=1069654902]
+script = ExtResource("1_ideak")
+
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=43557964]
+position = Vector2(19.5, 5)
+shape = SubResource("RectangleShape2D_6ggpg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1808100296]
+offset_left = 5.0
+offset_top = -22.0
+offset_right = 35.0
+offset_bottom = 30.0
+color = Color(1, 0, 1, 1)
+
+[node name="prompt" type="Label" parent="." unique_id=190209023]
+z_index = 3
+offset_left = -13.0
+offset_top = -40.0
+offset_right = 72.0
+offset_bottom = -17.0
+theme_override_font_sizes/font_size = 12
+text = "[E]"
+
+[node name="text" type="Label" parent="." unique_id=212600465]
+z_index = 3
+offset_left = 34.0
+offset_top = -41.0
+offset_right = 74.0
+offset_bottom = -18.0
+text = "Hello"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bqg3qti0klob1" path="res://Square.png" id="3_bnu7n"]
 [ext_resource type="PackedScene" uid="uid://cm2n52ebcgby" path="res://crawler.tscn" id="3_mlujb"]
 [ext_resource type="AudioStream" uid="uid://v6ef5jf83d2q" path="res://JacobsMusic.wav" id="4_mlujb"]
+[ext_resource type="PackedScene" uid="uid://diaj5hqbip1ye" path="res://npc.tscn" id="6_l5di8"]
+[ext_resource type="Script" uid="uid://g75jwjh6xy18" path="res://npc_two.gd" id="7_3gsno"]
+[ext_resource type="PackedScene" uid="uid://dpo3582m0wb21" path="res://fireball.tscn" id="8_jvkvm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l5di8"]
 texture = ExtResource("3_bnu7n")
@@ -12,7 +15,8 @@ texture = ExtResource("3_bnu7n")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_6ggpg"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_l5di8")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggpg"]
@@ -53,5 +57,470 @@ shape = SubResource("RectangleShape2D_6ggpg")
 
 [node name="respawnPoint" type="Marker2D" parent="." unique_id=1858955611]
 position = Vector2(-1, -473)
+
+[node name="npc" parent="." unique_id=1069654902 instance=ExtResource("6_l5di8")]
+position = Vector2(112, 66)
+
+[node name="npc2" parent="." unique_id=1138497215 instance=ExtResource("6_l5di8")]
+position = Vector2(-420.64014, 209.79718)
+script = ExtResource("7_3gsno")
+metadata/_scene_painted = true
+
+[node name="crawlers" type="Node2D" parent="." unique_id=33391313]
+
+[node name="Crawler" parent="crawlers" unique_id=523494463 instance=ExtResource("3_mlujb")]
+position = Vector2(-3563.157, 167.20038)
+metadata/_scene_painted = true
+
+[node name="Crawler2" parent="crawlers" unique_id=1583149963 instance=ExtResource("3_mlujb")]
+position = Vector2(-3563.157, 167.20038)
+metadata/_scene_painted = true
+
+[node name="Crawler3" parent="crawlers" unique_id=1548369141 instance=ExtResource("3_mlujb")]
+position = Vector2(-3561.0134, 165.05682)
+metadata/_scene_painted = true
+
+[node name="Crawler4" parent="crawlers" unique_id=312067155 instance=ExtResource("3_mlujb")]
+position = Vector2(-3552.439, 147.90808)
+metadata/_scene_painted = true
+
+[node name="Crawler5" parent="crawlers" unique_id=1298941380 instance=ExtResource("3_mlujb")]
+position = Vector2(-3548.1519, 139.33374)
+metadata/_scene_painted = true
+
+[node name="Crawler6" parent="crawlers" unique_id=1674274624 instance=ExtResource("3_mlujb")]
+position = Vector2(-3528.8596, 113.61066)
+metadata/_scene_painted = true
+
+[node name="Crawler7" parent="crawlers" unique_id=254658263 instance=ExtResource("3_mlujb")]
+position = Vector2(-3511.711, 94.31836)
+metadata/_scene_painted = true
+
+[node name="Crawler8" parent="crawlers" unique_id=2010597333 instance=ExtResource("3_mlujb")]
+position = Vector2(-3498.8494, 81.45685)
+metadata/_scene_painted = true
+
+[node name="Crawler9" parent="crawlers" unique_id=890791698 instance=ExtResource("3_mlujb")]
+position = Vector2(-3466.6956, 47.159363)
+metadata/_scene_painted = true
+
+[node name="Crawler10" parent="crawlers" unique_id=1672325535 instance=ExtResource("3_mlujb")]
+position = Vector2(-3455.9775, 36.441467)
+metadata/_scene_painted = true
+
+[node name="Crawler11" parent="crawlers" unique_id=539485160 instance=ExtResource("3_mlujb")]
+position = Vector2(-3432.398, 10.718384)
+metadata/_scene_painted = true
+
+[node name="Crawler12" parent="crawlers" unique_id=347325122 instance=ExtResource("3_mlujb")]
+position = Vector2(-3421.6802, -2.1431885)
+metadata/_scene_painted = true
+
+[node name="Crawler13" parent="crawlers" unique_id=1574440783 instance=ExtResource("3_mlujb")]
+position = Vector2(-3393.8135, -25.722656)
+metadata/_scene_painted = true
+
+[node name="Crawler14" parent="crawlers" unique_id=861026523 instance=ExtResource("3_mlujb")]
+position = Vector2(-3380.952, -36.440582)
+metadata/_scene_painted = true
+
+[node name="Crawler15" parent="crawlers" unique_id=185161571 instance=ExtResource("3_mlujb")]
+position = Vector2(-3355.2288, -53.589294)
+metadata/_scene_painted = true
+
+[node name="Crawler16" parent="crawlers" unique_id=451451939 instance=ExtResource("3_mlujb")]
+position = Vector2(-3342.3672, -60.02008)
+metadata/_scene_painted = true
+
+[node name="Crawler17" parent="crawlers" unique_id=1613945087 instance=ExtResource("3_mlujb")]
+position = Vector2(-3316.6443, -75.02521)
+metadata/_scene_painted = true
+
+[node name="Crawler18" parent="crawlers" unique_id=1092139496 instance=ExtResource("3_mlujb")]
+position = Vector2(-3301.6392, -81.45596)
+metadata/_scene_painted = true
+
+[node name="Crawler19" parent="crawlers" unique_id=614012617 instance=ExtResource("3_mlujb")]
+position = Vector2(-3254.48, -100.74826)
+metadata/_scene_painted = true
+
+[node name="Crawler20" parent="crawlers" unique_id=442407491 instance=ExtResource("3_mlujb")]
+position = Vector2(-3233.0442, -109.32263)
+metadata/_scene_painted = true
+
+[node name="Crawler21" parent="crawlers" unique_id=900259292 instance=ExtResource("3_mlujb")]
+position = Vector2(-3170.8801, -126.471344)
+metadata/_scene_painted = true
+
+[node name="Crawler22" parent="crawlers" unique_id=477303098 instance=ExtResource("3_mlujb")]
+position = Vector2(-3134.4392, -130.75851)
+metadata/_scene_painted = true
+
+[node name="Crawler23" parent="crawlers" unique_id=147298834 instance=ExtResource("3_mlujb")]
+position = Vector2(-3070.1313, -135.04568)
+metadata/_scene_painted = true
+
+[node name="Crawler24" parent="crawlers" unique_id=1769810285 instance=ExtResource("3_mlujb")]
+position = Vector2(-3035.834, -137.18927)
+metadata/_scene_painted = true
+
+[node name="Crawler25" parent="crawlers" unique_id=1833101329 instance=ExtResource("3_mlujb")]
+position = Vector2(-2973.67, -137.18927)
+metadata/_scene_painted = true
+
+[node name="Crawler26" parent="crawlers" unique_id=1355077109 instance=ExtResource("3_mlujb")]
+position = Vector2(-2943.6597, -137.18927)
+metadata/_scene_painted = true
+
+[node name="Crawler27" parent="crawlers" unique_id=1017226442 instance=ExtResource("3_mlujb")]
+position = Vector2(-2879.352, -135.04568)
+metadata/_scene_painted = true
+
+[node name="Crawler28" parent="crawlers" unique_id=1871141648 instance=ExtResource("3_mlujb")]
+position = Vector2(-2860.0596, -130.75851)
+metadata/_scene_painted = true
+
+[node name="Crawler29" parent="crawlers" unique_id=845136792 instance=ExtResource("3_mlujb")]
+position = Vector2(-2832.193, -128.61493)
+metadata/_scene_painted = true
+
+[node name="Crawler30" parent="crawlers" unique_id=748915357 instance=ExtResource("3_mlujb")]
+position = Vector2(-2782.8906, -115.75339)
+metadata/_scene_painted = true
+
+[node name="Crawler31" parent="crawlers" unique_id=215651710 instance=ExtResource("3_mlujb")]
+position = Vector2(-2740.0186, -96.46109)
+metadata/_scene_painted = true
+
+[node name="Crawler32" parent="crawlers" unique_id=158249174 instance=ExtResource("3_mlujb")]
+position = Vector2(-2725.0137, -87.88672)
+metadata/_scene_painted = true
+
+[node name="Crawler33" parent="crawlers" unique_id=596013779 instance=ExtResource("3_mlujb")]
+position = Vector2(-2710.0083, -75.02521)
+metadata/_scene_painted = true
+
+[node name="Crawler34" parent="crawlers" unique_id=576777477 instance=ExtResource("3_mlujb")]
+position = Vector2(-2684.2854, -42.87137)
+metadata/_scene_painted = true
+
+[node name="Crawler35" parent="crawlers" unique_id=235510113 instance=ExtResource("3_mlujb")]
+position = Vector2(-2675.711, -25.722656)
+metadata/_scene_painted = true
+
+[node name="Crawler36" parent="crawlers" unique_id=236141160 instance=ExtResource("3_mlujb")]
+position = Vector2(-2660.706, 19.292725)
+metadata/_scene_painted = true
+
+[node name="Crawler37" parent="crawlers" unique_id=256751432 instance=ExtResource("3_mlujb")]
+position = Vector2(-2660.706, 19.292725)
+metadata/_scene_painted = true
+
+[node name="Crawler38" parent="crawlers" unique_id=1020471036 instance=ExtResource("3_mlujb")]
+position = Vector2(-2656.4187, 75.02606)
+metadata/_scene_painted = true
+
+[node name="Crawler39" parent="crawlers" unique_id=538186478 instance=ExtResource("3_mlujb")]
+position = Vector2(-2656.4187, 85.74402)
+metadata/_scene_painted = true
+
+[node name="Crawler40" parent="crawlers" unique_id=1967591305 instance=ExtResource("3_mlujb")]
+position = Vector2(-2658.5623, 98.60553)
+metadata/_scene_painted = true
+
+[node name="Crawler41" parent="crawlers" unique_id=1931235563 instance=ExtResource("3_mlujb")]
+position = Vector2(-2660.706, 107.17987)
+metadata/_scene_painted = true
+
+[node name="Crawler42" parent="crawlers" unique_id=735954758 instance=ExtResource("3_mlujb")]
+position = Vector2(-2669.2803, 124.32861)
+metadata/_scene_painted = true
+
+[node name="Crawler43" parent="crawlers" unique_id=814485357 instance=ExtResource("3_mlujb")]
+position = Vector2(-2677.8545, 132.90295)
+metadata/_scene_painted = true
+
+[node name="Crawler44" parent="crawlers" unique_id=1970673881 instance=ExtResource("3_mlujb")]
+position = Vector2(-2707.8647, 145.76453)
+metadata/_scene_painted = true
+
+[node name="Crawler45" parent="crawlers" unique_id=1382674446 instance=ExtResource("3_mlujb")]
+position = Vector2(-2729.3008, 152.19525)
+metadata/_scene_painted = true
+
+[node name="Crawler46" parent="crawlers" unique_id=918752210 instance=ExtResource("3_mlujb")]
+position = Vector2(-2795.752, 162.91321)
+metadata/_scene_painted = true
+
+[node name="Crawler47" parent="crawlers" unique_id=951034325 instance=ExtResource("3_mlujb")]
+position = Vector2(-2840.7673, 165.05682)
+metadata/_scene_painted = true
+
+[node name="Crawler48" parent="crawlers" unique_id=1260688045 instance=ExtResource("3_mlujb")]
+position = Vector2(-2982.2441, 165.05682)
+metadata/_scene_painted = true
+
+[node name="Crawler49" parent="crawlers" unique_id=1228970421 instance=ExtResource("3_mlujb")]
+position = Vector2(-3065.8442, 162.91321)
+metadata/_scene_painted = true
+
+[node name="Crawler50" parent="crawlers" unique_id=515215814 instance=ExtResource("3_mlujb")]
+position = Vector2(-3209.4648, 150.0517)
+metadata/_scene_painted = true
+
+[node name="Crawler51" parent="crawlers" unique_id=1302164589 instance=ExtResource("3_mlujb")]
+position = Vector2(-3273.7725, 139.33374)
+metadata/_scene_painted = true
+
+[node name="Crawler52" parent="crawlers" unique_id=2003313675 instance=ExtResource("3_mlujb")]
+position = Vector2(-3376.6648, 117.89783)
+metadata/_scene_painted = true
+
+[node name="Crawler53" parent="crawlers" unique_id=190968396 instance=ExtResource("3_mlujb")]
+position = Vector2(-3406.675, 111.46704)
+metadata/_scene_painted = true
+
+[node name="Crawler54" parent="crawlers" unique_id=1689218773 instance=ExtResource("3_mlujb")]
+position = Vector2(-3436.6853, 96.461975)
+metadata/_scene_painted = true
+
+[node name="Crawler55" parent="crawlers" unique_id=298868339 instance=ExtResource("3_mlujb")]
+position = Vector2(-3443.116, 92.17474)
+metadata/_scene_painted = true
+
+[node name="Crawler56" parent="crawlers" unique_id=2134553653 instance=ExtResource("3_mlujb")]
+position = Vector2(-3445.2595, 79.31323)
+metadata/_scene_painted = true
+
+[node name="Crawler57" parent="crawlers" unique_id=1385878039 instance=ExtResource("3_mlujb")]
+position = Vector2(-3447.403, 70.73889)
+metadata/_scene_painted = true
+
+[node name="Crawler58" parent="crawlers" unique_id=1546430696 instance=ExtResource("3_mlujb")]
+position = Vector2(-3445.2595, 49.30298)
+metadata/_scene_painted = true
+
+[node name="Crawler59" parent="crawlers" unique_id=1190964285 instance=ExtResource("3_mlujb")]
+position = Vector2(-3432.398, -4.286743)
+metadata/_scene_painted = true
+
+[node name="Crawler60" parent="crawlers" unique_id=1150265437 instance=ExtResource("3_mlujb")]
+position = Vector2(-3421.6802, -32.15341)
+metadata/_scene_painted = true
+
+[node name="Crawler61" parent="crawlers" unique_id=1215739949 instance=ExtResource("3_mlujb")]
+position = Vector2(-3389.5264, -92.17392)
+metadata/_scene_painted = true
+
+[node name="Crawler62" parent="crawlers" unique_id=155714423 instance=ExtResource("3_mlujb")]
+position = Vector2(-3372.3774, -113.6098)
+metadata/_scene_painted = true
+
+[node name="Crawler63" parent="crawlers" unique_id=526789385 instance=ExtResource("3_mlujb")]
+position = Vector2(-3325.2185, -154.33798)
+metadata/_scene_painted = true
+
+[node name="Crawler64" parent="crawlers" unique_id=1814159985 instance=ExtResource("3_mlujb")]
+position = Vector2(-3299.4956, -165.05594)
+metadata/_scene_painted = true
+
+[node name="Crawler65" parent="crawlers" unique_id=1481284017 instance=ExtResource("3_mlujb")]
+position = Vector2(-3241.6187, -184.34824)
+metadata/_scene_painted = true
+
+[node name="Crawler66" parent="crawlers" unique_id=1936875985 instance=ExtResource("3_mlujb")]
+position = Vector2(-3198.7468, -188.63544)
+metadata/_scene_painted = true
+
+[node name="Crawler67" parent="crawlers" unique_id=806309911 instance=ExtResource("3_mlujb")]
+position = Vector2(-3085.1367, -184.34824)
+metadata/_scene_painted = true
+
+[node name="Crawler68" parent="crawlers" unique_id=1486069135 instance=ExtResource("3_mlujb")]
+position = Vector2(-3014.3982, -171.48672)
+metadata/_scene_painted = true
+
+[node name="Crawler69" parent="crawlers" unique_id=221851126 instance=ExtResource("3_mlujb")]
+position = Vector2(-2877.2085, -117.89697)
+metadata/_scene_painted = true
+
+[node name="Crawler70" parent="crawlers" unique_id=1673237799 instance=ExtResource("3_mlujb")]
+position = Vector2(-2821.475, -85.74313)
+metadata/_scene_painted = true
+
+[node name="Crawler71" parent="crawlers" unique_id=1760707826 instance=ExtResource("3_mlujb")]
+position = Vector2(-2746.4495, -23.57904)
+metadata/_scene_painted = true
+
+[node name="Crawler72" parent="crawlers" unique_id=1730247485 instance=ExtResource("3_mlujb")]
+position = Vector2(-2729.3008, 6.4312134)
+metadata/_scene_painted = true
+
+[node name="Crawler73" parent="crawlers" unique_id=352393452 instance=ExtResource("3_mlujb")]
+position = Vector2(-2705.7212, 70.73889)
+metadata/_scene_painted = true
+
+[node name="Crawler74" parent="crawlers" unique_id=2041164709 instance=ExtResource("3_mlujb")]
+position = Vector2(-2703.5776, 100.749146)
+metadata/_scene_painted = true
+
+[node name="Crawler75" parent="crawlers" unique_id=1672354851 instance=ExtResource("3_mlujb")]
+position = Vector2(-2699.2905, 143.62091)
+metadata/_scene_painted = true
+
+[node name="Crawler76" parent="crawlers" unique_id=1058130490 instance=ExtResource("3_mlujb")]
+position = Vector2(-2699.2905, 158.62604)
+metadata/_scene_painted = true
+
+[node name="Crawler77" parent="crawlers" unique_id=589403977 instance=ExtResource("3_mlujb")]
+position = Vector2(-2701.434, 177.91833)
+metadata/_scene_painted = true
+
+[node name="Crawler78" parent="crawlers" unique_id=1796282462 instance=ExtResource("3_mlujb")]
+position = Vector2(-2703.5776, 184.34912)
+metadata/_scene_painted = true
+
+[node name="Crawler79" parent="crawlers" unique_id=701581740 instance=ExtResource("3_mlujb")]
+position = Vector2(-2712.152, 192.92346)
+metadata/_scene_painted = true
+
+[node name="Crawler80" parent="crawlers" unique_id=323048591 instance=ExtResource("3_mlujb")]
+position = Vector2(-2718.5828, 195.06708)
+metadata/_scene_painted = true
+
+[node name="Crawler81" parent="crawlers" unique_id=164318115 instance=ExtResource("3_mlujb")]
+position = Vector2(-2763.5981, 199.35425)
+metadata/_scene_painted = true
+
+[node name="Crawler82" parent="crawlers" unique_id=1358531898 instance=ExtResource("3_mlujb")]
+position = Vector2(-2804.3264, 197.21063)
+metadata/_scene_painted = true
+
+[node name="Crawler83" parent="crawlers" unique_id=973324734 instance=ExtResource("3_mlujb")]
+position = Vector2(-2956.5212, 177.91833)
+metadata/_scene_painted = true
+
+[node name="Crawler84" parent="crawlers" unique_id=1886833379 instance=ExtResource("3_mlujb")]
+position = Vector2(-3061.5571, 152.19525)
+metadata/_scene_painted = true
+
+[node name="Crawler85" parent="crawlers" unique_id=1809879837 instance=ExtResource("3_mlujb")]
+position = Vector2(-3138.7263, 132.90295)
+metadata/_scene_painted = true
+
+[node name="Crawler86" parent="crawlers" unique_id=31761593 instance=ExtResource("3_mlujb")]
+position = Vector2(-3293.0647, 87.88757)
+metadata/_scene_painted = true
+
+[node name="Crawler87" parent="crawlers" unique_id=1789444173 instance=ExtResource("3_mlujb")]
+position = Vector2(-3333.793, 68.595276)
+metadata/_scene_painted = true
+
+[node name="Crawler88" parent="crawlers" unique_id=827853444 instance=ExtResource("3_mlujb")]
+position = Vector2(-3372.3774, 40.728638)
+metadata/_scene_painted = true
+
+[node name="Crawler89" parent="crawlers" unique_id=2032271073 instance=ExtResource("3_mlujb")]
+position = Vector2(-3376.6648, 34.29785)
+metadata/_scene_painted = true
+
+[node name="Crawler90" parent="crawlers" unique_id=70137284 instance=ExtResource("3_mlujb")]
+position = Vector2(-3380.952, 15.005554)
+metadata/_scene_painted = true
+
+[node name="Crawler91" parent="crawlers" unique_id=1870178916 instance=ExtResource("3_mlujb")]
+position = Vector2(-3378.8083, -2.1431885)
+metadata/_scene_painted = true
+
+[node name="Crawler92" parent="crawlers" unique_id=1575194253 instance=ExtResource("3_mlujb")]
+position = Vector2(-3359.516, -38.584167)
+metadata/_scene_painted = true
+
+[node name="Crawler93" parent="crawlers" unique_id=1703580657 instance=ExtResource("3_mlujb")]
+position = Vector2(-3342.3672, -55.73288)
+metadata/_scene_painted = true
+
+[node name="Crawler94" parent="crawlers" unique_id=1073352748 instance=ExtResource("3_mlujb")]
+position = Vector2(-3301.6392, -79.31238)
+metadata/_scene_painted = true
+
+[node name="Crawler95" parent="crawlers" unique_id=2075256463 instance=ExtResource("3_mlujb")]
+position = Vector2(-3273.7725, -90.030334)
+metadata/_scene_painted = true
+
+[node name="Crawler96" parent="crawlers" unique_id=426886130 instance=ExtResource("3_mlujb")]
+position = Vector2(-3222.3262, -98.604675)
+metadata/_scene_painted = true
+
+[node name="Crawler97" parent="crawlers" unique_id=1470205506 instance=ExtResource("3_mlujb")]
+position = Vector2(-3188.0288, -100.74826)
+metadata/_scene_painted = true
+
+[node name="Crawler98" parent="crawlers" unique_id=1336084569 instance=ExtResource("3_mlujb")]
+position = Vector2(-3093.711, -87.88672)
+metadata/_scene_painted = true
+
+[node name="Crawler99" parent="crawlers" unique_id=1766244560 instance=ExtResource("3_mlujb")]
+position = Vector2(-3040.121, -70.73801)
+metadata/_scene_painted = true
+
+[node name="Crawler100" parent="crawlers" unique_id=2119668961 instance=ExtResource("3_mlujb")]
+position = Vector2(-2855.7725, 19.292725)
+metadata/_scene_painted = true
+
+[node name="Crawler101" parent="crawlers" unique_id=920260013 instance=ExtResource("3_mlujb")]
+position = Vector2(-2776.4597, 68.595276)
+metadata/_scene_painted = true
+
+[node name="Crawler102" parent="crawlers" unique_id=701527352 instance=ExtResource("3_mlujb")]
+position = Vector2(-2761.4546, 79.31323)
+metadata/_scene_painted = true
+
+[node name="Crawler103" parent="crawlers" unique_id=902574185 instance=ExtResource("3_mlujb")]
+position = Vector2(-2759.311, 85.74402)
+metadata/_scene_painted = true
+
+[node name="Crawler104" parent="crawlers" unique_id=1079987387 instance=ExtResource("3_mlujb")]
+position = Vector2(-2763.5981, 85.74402)
+metadata/_scene_painted = true
+
+[node name="Crawler105" parent="crawlers" unique_id=413667195 instance=ExtResource("3_mlujb")]
+position = Vector2(-2770.0288, 87.88757)
+metadata/_scene_painted = true
+
+[node name="Crawler106" parent="crawlers" unique_id=328483251 instance=ExtResource("3_mlujb")]
+position = Vector2(-2791.4648, 90.03119)
+metadata/_scene_painted = true
+
+[node name="Crawler107" parent="crawlers" unique_id=299951410 instance=ExtResource("3_mlujb")]
+position = Vector2(-2804.3264, 90.03119)
+metadata/_scene_painted = true
+
+[node name="Crawler108" parent="crawlers" unique_id=2007287927 instance=ExtResource("3_mlujb")]
+position = Vector2(-2817.188, 92.17474)
+metadata/_scene_painted = true
+
+[node name="Crawler109" parent="crawlers" unique_id=996200733 instance=ExtResource("3_mlujb")]
+position = Vector2(-2855.7725, 92.17474)
+metadata/_scene_painted = true
+
+[node name="Crawler110" parent="crawlers" unique_id=742969564 instance=ExtResource("3_mlujb")]
+position = Vector2(-2902.9316, 87.88757)
+metadata/_scene_painted = true
+
+[node name="Crawler111" parent="crawlers" unique_id=18986950 instance=ExtResource("3_mlujb")]
+position = Vector2(-2926.511, 85.74402)
+metadata/_scene_painted = true
+
+[node name="Crawler112" parent="crawlers" unique_id=212488404 instance=ExtResource("3_mlujb")]
+position = Vector2(-2945.8032, 81.45685)
+metadata/_scene_painted = true
+
+[node name="Crawler113" parent="crawlers" unique_id=539072785 instance=ExtResource("3_mlujb")]
+position = Vector2(-2982.2441, 77.16962)
+metadata/_scene_painted = true
+
+[node name="fireball" parent="." unique_id=1840347760 instance=ExtResource("8_jvkvm")]
+position = Vector2(201, 56)
 
 [connection signal="body_entered" from="fallArea" to="." method="_on_fall_area_body_entered"]

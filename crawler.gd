@@ -20,25 +20,35 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 
 	if $raycastright.is_colliding() or not $raycastrightground.is_colliding():
-		direction = -1
+			if not is_in_group("player"):
+				direction = -1
 	if $raycastleft.is_colliding() or not $raycastleftground.is_colliding():
-		direction = 1
+			if not is_in_group("player"):
+				direction = 1
 #	velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 
 
 
-#	if body.is_in_group("weapon"):
-#		print("Hit!")
-#		$sprite.visible = false
-#		$hitbox.disabled = true
-#		set_deferred("disabled",true)
+
 
 
 func _on_hitarea_area_entered(area: Area2D) -> void:
 	if area.is_in_group("weapon"):
+		$damagearea.monitoring = false
 		print("Hit!")
 		$sprite.visible = false
 		$VFX.emitting = true
 		$hitbox.set_deferred("disabled", true)
+
+
+
+
+
+
+
+func _on_damagearea_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") and Global.iframes < 1:
+		Global.health -= 1
+		Global.iframes = 50
