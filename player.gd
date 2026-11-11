@@ -14,6 +14,7 @@ var dashing = 1
 var jumps = 0
 var fireball := preload("res://fireball.tscn")
 var instance := fireball.instantiate()
+var fire_cooldown = false
 var direction := Input.get_axis("left", "right")
 func _ready() -> void:
 	#Make sure sword is invisible
@@ -23,13 +24,30 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	
+	#Hackz
+	if Input.is_action_pressed("hackz"):
+		Global.max_health += 1
+		Global.health += 1
+	
+	#Healthbar
+	$healthbar.value = Global.health
+	$healthbar.max_value = Global.max_health
+	
 	
 	#Fireball
-	if Input.is_action_just_pressed("fireball"):
+	if Input.is_action_just_pressed("fireball") and fire_cooldown == false:
 		print(Global.lastdir)
 		instance = fireball.instantiate()
 		add_child(instance)
 		Global.fireballed = true
+		fire_cooldown = true
+		$fire_timer.start()
+		#Cooldown managment: line 142
+	$fire_cool_indic.value = $fire_timer.time_left * 100
+	if $fire_cool_indic.value == 0:
+		$fire_cool_indic.visible = false
+	else:
+		$fire_cool_indic.visible = true
 	
 	
 	#Manage iframes
@@ -45,7 +63,7 @@ func _physics_process(delta: float) -> void:
 		Global.health = Global.max_health
 	
 	#Debug tools
-	$state.text = str(state)
+	$state.text = str("State: ") + str(state)
 	
 	#Death screen
 	if Global.health < 1:
@@ -67,7 +85,7 @@ func _physics_process(delta: float) -> void:
 		state = States.DASHING
 		$DashingEffects.emitting = true
 		velocity.x = lerp(velocity.x, velocity.x + 8500 * Global.lastdir, 0.1)
-		await get_tree().create_timer(0.25).timeout
+		await get_tree().create_timer(0.3).timeout
 		state = States.IDLE
 	
 	# Handle gravity
@@ -129,3 +147,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
+
+
+func _on_fire_timer_timeout() -> void:
+	fire_cooldown = false

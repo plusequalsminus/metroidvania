@@ -2,9 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dbtaf1vffpoi0" path="res://Vertical.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://ueqvby8naudk" path="res://player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://deqfkpoytwr3t" path="res://Horizontal.png" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bqg3qti0klob1" path="res://Square.png" id="4_hqtel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggpg"]
-size = Vector2(20, 32)
+size = Vector2(20, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xs13p"]
 size = Vector2(16, 10)
@@ -25,11 +27,17 @@ shape = SubResource("RectangleShape2D_6ggpg")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=2101124527]
 modulate = Color(0, 0, 1, 1)
+position = Vector2(0, 4.7683716e-07)
 scale = Vector2(2, 2)
 texture = ExtResource("1_4flbx")
 
 [node name="camera" type="Camera2D" parent="." unique_id=1985226612]
 zoom = Vector2(2, 2)
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+editor_draw_drag_margin = true
 
 [node name="sword" type="Area2D" parent="." unique_id=1926267462 groups=["weapon"]]
 position = Vector2(21, 5)
@@ -85,16 +93,47 @@ initial_velocity_min = 50.0
 initial_velocity_max = 50.0
 
 [node name="healthCounter" type="Label" parent="." unique_id=1272271768]
+visible = false
+offset_left = -288.0
+offset_top = -134.0
+offset_right = -248.0
+offset_bottom = -111.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1294609943]
+z_index = 1
+offset_left = -288.0
+offset_top = 132.0
+offset_right = -71.0
+offset_bottom = 162.0
+color = Color(0, 0, 0, 0.45882353)
+
+[node name="balls" type="Node2D" parent="." unique_id=858022117]
+
+[node name="healthbar" type="TextureProgressBar" parent="." unique_id=1212547936]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -283.0
-offset_top = -159.0
-offset_right = -243.0
-offset_bottom = -136.0
+offset_top = -162.0
+offset_right = -267.0
+offset_bottom = -135.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3, 1.5)
+max_value = 5.0
+value = 5.0
+texture_under = ExtResource("3_i3pqv")
+texture_progress = ExtResource("3_i3pqv")
+tint_under = Color(0.72605973, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
 
 [node name="state" type="Label" parent="." unique_id=1082870524]
-offset_left = -20.0
-offset_top = -39.0
-offset_right = 20.0
-offset_bottom = -16.0
+offset_left = -288.0
+offset_top = 109.0
+offset_right = -248.0
+offset_bottom = 132.0
 text = "state"
 
 [node name="key" type="Label" parent="." unique_id=709788061]
@@ -107,12 +146,25 @@ theme_override_font_sizes/font_size = 10
 text = "| 0 = IDLE | 1 = WALKING | 2 = RUNNING | 
 | 3 = JUMPING | 4 = DASHING | 5 = FALLING |"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1294609943]
-z_index = 1
-offset_left = -288.0
-offset_top = 132.0
-offset_right = -71.0
-offset_bottom = 162.0
-color = Color(0, 0, 0, 0.45882353)
+[node name="fire_timer" type="Timer" parent="." unique_id=1185266277]
+one_shot = true
 
-[node name="balls" type="Node2D" parent="." unique_id=858022117]
+[node name="fire_cool_indic" type="TextureProgressBar" parent="." unique_id=1928165607]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -26.0
+offset_right = 20.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 0.25)
+texture_under = ExtResource("4_hqtel")
+texture_progress = ExtResource("4_hqtel")
+tint_under = Color(1, 1, 0, 1)
+tint_progress = Color(1, 0.5995313, 0, 1)
+
+[connection signal="timeout" from="fire_timer" to="." method="_on_fire_timer_timeout"]

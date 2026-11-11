@@ -5,6 +5,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggpg"]
 size = Vector2(68.5, 34.5)
 
+[sub_resource type="Gradient" id="Gradient_sf4mh"]
+offsets = PackedFloat32Array(0.01875, 0.559375)
+colors = PackedColorArray(1, 0.21802102, 0, 1, 1, 0.65150005, 0, 1)
+
 [node name="fireball" type="Area2D" unique_id=1840347760 groups=["weapon"]]
 top_level = true
 script = ExtResource("1_sf4mh")
@@ -19,3 +23,20 @@ offset_top = -18.0
 offset_right = 35.0
 offset_bottom = 17.0
 color = Color(1, 0.5116678, 0, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=741214719]
+z_index = -1
+amount = 100
+lifetime = 0.5
+lifetime_randomness = 0.25
+spread = 25.0
+gravity = Vector2(100, 0)
+initial_velocity_min = 250.0
+initial_velocity_max = 250.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_sf4mh")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

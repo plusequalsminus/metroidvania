@@ -20,7 +20,7 @@ offsets = PackedFloat32Array(0, 0.61419755)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrmmu"]
 size = Vector2(14, 8)
 
-[node name="Crawler" type="CharacterBody2D" unique_id=1363650457]
+[node name="Crawler" type="CharacterBody2D" unique_id=1363650457 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_3n7dr")
@@ -53,7 +53,7 @@ rotation = -1.5707964
 target_position = Vector2(-4.371139e-07, 10)
 collision_mask = 2
 
-[node name="hitarea" type="Area2D" parent="." unique_id=877718654]
+[node name="hitarea" type="Area2D" parent="." unique_id=877718654 groups=["enemy"]]
 script = ExtResource("3_f6m34")
 
 [node name="hitbox" type="CollisionShape2D" parent="hitarea" unique_id=618229736]
@@ -77,7 +77,7 @@ scale_amount_curve = SubResource("Curve_f6m34")
 color = Color(0.627451, 0.29411766, 1, 1)
 color_initial_ramp = SubResource("Gradient_ihok4")
 
-[node name="damagearea" type="Area2D" parent="." unique_id=1133486881]
+[node name="damagearea" type="Area2D" parent="." unique_id=1133486881 groups=["enemy"]]
 
 [node name="hitbox" type="CollisionShape2D" parent="damagearea" unique_id=305182017]
 shape = SubResource("RectangleShape2D_mrmmu")
